@@ -8,33 +8,6 @@
 import SwiftUI
 import MapKit
 
-
-class RunTracker: NSObject, ObservableObject {
-    @Published var region = MKCoordinateRegion(center: .init(latitude: 49.2827, longitude: -123.1207), span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    @Published var presentCountdown = false
-    
-    //Location Tracking
-    // optional is used because we initialize locationManager in init, but might get denied location access permissions so could be a nil value
-    private var locationManager: CLLocationManager?
-    private var startLocation: CLLocation?
-    private var lastLocation: CLLocation?
-    
-    override init() {
-        // ensures NSObject setup gets initialized since we inherit
-        super.init()
-        
-        Task {
-            await MainActor.run {
-                locationManager = CLLocationManager()
-                locationManager?.delegate = self
-                locationManager?.requestWhenInUseAuthorization()
-                locationManager?.startUpdatingLocation()
-            }
-        }
-    }
-    
-}
-
 struct AreaMap: View {
     @Binding var region: MKCoordinateRegion
     
@@ -49,29 +22,6 @@ struct AreaMap: View {
         )
         return Map(coordinateRegion: binding, showsUserLocation: true)
             .ignoresSafeArea()
-    }
-}
-
-// MARK: Location Tracking
-extension RunTracker: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //location = current location
-        guard let location = locations.last else { return }
-        
-        //once app is launched with permission granted, map should update to current user location
-        Task {
-            await MainActor.run {
-                region.center = location.coordinate
-            }
-        }
-        
-        if startLocation == nil {
-            startLocation = location
-            lastLocation = location
-            return
-        }
-        
-        lastLocation = location
     }
 }
 
@@ -104,6 +54,9 @@ struct HomeView: View {
             .navigationTitle("Run")
             .fullScreenCover(isPresented: $runTracker.presentCountdown, content: {
                 CountdownView()
+                    .environmentObject(runTracker)
+            })
+            .fullScreenCover(isPresented: $runTracker.presentRunView, content: { RunView()
                     .environmentObject(runTracker)
             })
         }

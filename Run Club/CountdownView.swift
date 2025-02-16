@@ -27,9 +27,11 @@ struct CountdownView: View {
         // _ in ... is a closure that gets exectued every 1 second
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if countdown <= 1 {
+                // stops timer from executing closure
                 timer?.invalidate()
                 timer = nil
                 runTracker.presentCountdown = false
+                runTracker.startRun()
             } else {
                 countdown -= 1
             }
