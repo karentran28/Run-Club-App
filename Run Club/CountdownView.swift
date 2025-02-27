@@ -41,4 +41,5 @@ struct CountdownView: View {
 
 #Preview {
     CountdownView()
+        .environmentObject(RunTracker())
 }

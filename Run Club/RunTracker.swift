@@ -13,6 +13,7 @@ class RunTracker: NSObject, ObservableObject {
     @Published var isRunning = false
     @Published var presentCountdown = false
     @Published var presentRunView = false
+    @Published var presentPauseView = false
     @Published var distance = 0.0
     @Published var pace = 0.0
     @Published var elapsedTime = 0
@@ -67,6 +68,8 @@ class RunTracker: NSObject, ObservableObject {
     
     func resumeRun() {
         isRunning = true
+        presentPauseView = false
+        presentRunView = true
         startLocation = nil
         lastLocation = nil
         distance = 0.0
@@ -86,14 +89,17 @@ class RunTracker: NSObject, ObservableObject {
     
     func stopRun() {
         isRunning = false
+        presentRunView = false
+        presentPauseView = false
         locationManager?.stopUpdatingLocation()
         timer?.invalidate()
         timer = nil
-        presentRunView = false
     }
     
     func pauseRun() {
         isRunning = false
+        presentRunView = false
+        presentPauseView = true
         locationManager?.stopUpdatingLocation()
         timer?.invalidate()
     }
