@@ -6,7 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F368E3AD2D6EDA5C00EC9CD3 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = F368E3AC2D6EDA5C00EC9CD3 /* Supabase */; };
+		F368E3BE2D743E9E00EC9CD3 /* Run-Club-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F368E3BD2D743E9E00EC9CD3 /* Run-Club-Info.plist */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		F368E3BD2D743E9E00EC9CD3 /* Run-Club-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Run-Club-Info.plist"; sourceTree = "<group>"; };
 		F3FD7FBB2D50045B00C7E2B1 /* Run Club.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Run Club.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -23,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F368E3AD2D6EDA5C00EC9CD3 /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +39,7 @@
 		F3FD7FB22D50045B00C7E2B1 = {
 			isa = PBXGroup;
 			children = (
+				F368E3BD2D743E9E00EC9CD3 /* Run-Club-Info.plist */,
 				F3FD7FBD2D50045B00C7E2B1 /* Run Club */,
 				F3FD7FBC2D50045B00C7E2B1 /* Products */,
 			);
@@ -65,6 +73,7 @@
 			);
 			name = "Run Club";
 			packageProductDependencies = (
+				F368E3AC2D6EDA5C00EC9CD3 /* Supabase */,
 			);
 			productName = "Run Club";
 			productReference = F3FD7FBB2D50045B00C7E2B1 /* Run Club.app */;
@@ -94,6 +103,9 @@
 			);
 			mainGroup = F3FD7FB22D50045B00C7E2B1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F368E3AB2D6EDA5C00EC9CD3 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F3FD7FBC2D50045B00C7E2B1 /* Products */;
 			projectDirPath = "";
@@ -109,6 +121,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F368E3BE2D743E9E00EC9CD3 /* Run-Club-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +184,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "SUPABASE_URL=$(SUPABASE_URL)";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -183,6 +197,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPABASE_URL = "http://sslvnetuptirfgzviujl.supabase.co";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -228,6 +243,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "SUPABASE_URL=$(SUPABASE_URL)";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -239,6 +255,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SUPABASE_URL = "http://sslvnetuptirfgzviujl.supabase.co";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -255,6 +272,7 @@
 				DEVELOPMENT_TEAM = X2S9298CA7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Run-Club-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "please allow access to enjoy our app";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "please allow access to enjoy our app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -286,6 +304,7 @@
 				DEVELOPMENT_TEAM = X2S9298CA7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Run-Club-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "please allow access to enjoy our app";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "please allow access to enjoy our app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -328,6 +347,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F368E3AB2D6EDA5C00EC9CD3 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F368E3AC2D6EDA5C00EC9CD3 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F368E3AB2D6EDA5C00EC9CD3 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3FD7FB32D50045B00C7E2B1 /* Project object */;
 }

@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Run Club")
+        if let session = AuthService.shared.currentSession {
+            RunClubTabView()
+        } else {
+            LoginView()
         }
-        .padding()
     }
 }
 

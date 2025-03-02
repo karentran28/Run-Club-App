@@ -19,6 +19,12 @@ struct RunClubTabView: View {
                     Text("Run")
                 }
             
+            ActivityView()
+                .tag(1)
+                .tabItem {
+                    Image(systemName: "chart.bar.fill")
+                    Text("Activity")
+                }
         }
     }
 }
